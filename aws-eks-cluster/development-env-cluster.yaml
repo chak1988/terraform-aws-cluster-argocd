@@ -1,0 +1,28 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: development-env
+  region: us-west-2
+
+vpc:
+  id: vpc-0db14f7fc1a2d8f6b
+  subnets:
+    private:
+      us-west-2d:
+        id: subnet-013e0287e34108157 
+      us-west-2b:
+        id: subnet-0890865580e07e95f 
+    public:
+      us-west-2a:
+        id: subnet-0ddb377c6e21c9f8b 
+      us-west-2c:
+        id: subnet-0ff0ba2093fd40b69 
+
+nodeGroups:
+  - name: general
+    instanceType: t3.small
+    desiredCapacity: 3
+    labels: {role: general}
+    volumeSize: 40
+    privateNetworking: true
