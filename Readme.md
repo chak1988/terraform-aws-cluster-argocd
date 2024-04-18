@@ -13,7 +13,7 @@
 module "argocd_prod" {
   source           = "./argocd_deploy"
   eks_cluster_name = "production-env"
-  chart_version    = "5.46.2"
+  chart_version    = "5.46.1"
 }
 
 # Folder argocd_root_app_deploy with terraform file for root application deployment
