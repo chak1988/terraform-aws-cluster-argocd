@@ -12,7 +12,7 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.this.certificate_authority[0].data)
 }
 
-
+# Deploy root application
 resource "kubernetes_manifest" "argocd_root" {
   manifest = yamldecode(templatefile("${path.module}/root.yaml", {
     path           = var.git_source_path

@@ -14,7 +14,7 @@ provider "helm" {
   }
 }
 
-
+# Deploy ArgoCD in cluster
 resource "helm_release" "argocd" {
   name             = "argocd"
   repository       = "https://argoproj.github.io/argo-helm" # Official Chart Repo
@@ -22,7 +22,7 @@ resource "helm_release" "argocd" {
   namespace        = "argocd"
   version          = var.chart_version
   create_namespace = true
-  #values           = [file("${path.module}/argocd.yaml")]
+  #values           = [file("${path.module}/argocd.yaml")] # only for HA
 }
 
 
